@@ -13,6 +13,8 @@ import (
 	"os"
 	"strings"
 	"unicode"
+
+	"github.com/joho/godotenv"
 )
 
 const (
@@ -23,6 +25,8 @@ const (
 )
 
 func main() {
+	_ = godotenv.Load() // Ignore error if .env file is missing
+
 	if len(os.Args) < 2 {
 		fmt.Println("Expected 'check' or 'generate' subcommands")
 		os.Exit(1)
